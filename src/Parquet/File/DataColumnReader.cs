@@ -196,7 +196,7 @@ namespace Parquet.File
                      cd.definitionsOffset += ReadLevels(reader, _maxDefinitionLevel, cd.definitions, cd.definitionsOffset, ph.Data_page_header.Num_values);
                   }
 
-                  ReadColumn(reader, ph.Data_page_header.Encoding, maxValues, ph.Data_page_header.Num_values, cd);
+                  ReadColumn(reader, ph.Data_page_header.Encoding, maxValues, ph.Data_page_header.Num_values - (int)ph.Data_page_header.Statistics.Null_count, cd);
                }
             }
          }
